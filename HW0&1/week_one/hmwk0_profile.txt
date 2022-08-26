@@ -1,0 +1,11 @@
+——Student Profile——
+
+Name: Mia Nguyen
+
+Major/minor: Computer Science
+
+Programming experience: None
+
+What do you expect to learn in this course?
+I expect to learn how to comfortably design and write code using C++.
+

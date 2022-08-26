@@ -1,0 +1,92 @@
+Mia Nguyen
+HW1: Pseudocode Assignment
+
+Problem 1:
+
+input fahrenheit value
+celsius = 5/9 (fahrenheit - 32)
+output celsius value
+
+Problem 2:
+
+currentPopulation = 328,441,867
+calculate secondsInOneYear = 365 * 24 * 60 * 60
+calculate birthsInOneYear = secondsInOneYear / 8
+calculatedeathsInOneYear = secondsInOneYear / 12
+calculate immigrantsInOneYear = secondsInOneYear / 27
+calculate populationGrowthInOneYear = birthsInOneYear + immigrantsInOneYear - deathsInOneYear
+calculate populationAfterOneYear = currentPopulation + populationGrowthInOneYear
+Output populationAfterOneYear
+
+
+Problem 3:
+
+Output menu: "Enter Fox, Bunny, Sloth, or Quit"
+Input animal
+
+while animal not equal to Quit
+    if animal equal fox
+        input agility
+        input strength
+        speed = 0
+    else if animal equal bunny  
+        input agility
+        input speed
+        strength = 0
+    else if animal equal sloth  
+        input strength
+        input speed
+        agility = 0
+Calculate hireScore = (1.8 * agility) + (2.16 * strength) + (3.24 * speed)
+Output hireScore
+Output menu: "Enter Fox, Bunny, Sloth, or Quit"
+Input animal
+
+
+
+Problem 4A:
+
+balance = 10000
+months = 0
+while balance > 0
+    calculate: balance = (balance - 500) * 1.005
+    calculate: months = months + 1
+calculate: years = months / 12
+output (years)
+
+Problem 4B:
+
+Input balance
+Input annualRate
+Input monthlyExpenditure
+set month to 0
+while balance > 0
+    set initialBalance = balance    
+        calculate: balance = (initialBalance - monthlyExpenditure) * (1 + annualRate/12/100)
+        calculate: months = months + 1
+        if balance > initialBalance 
+            exit while loop
+calculate: years = months / 12
+output (years)
+
+
+
+Problem 5:
+
+There are two compile errors. In line 11,  Punith typed "cot" and not "cout"  and did not include a semicolon at the end of the line.
+There are no runtime errors. 
+The final code should look like this:
+
+// CS1300
+// Author: Punith Sandhu
+// Recitation: 123 - Favorite TA
+// Homework 1 - Problem 101 -- Hello 1300!
+
+#include <iostream>
+using namespace std;
+
+// hello program: it prints "Hello 1300!"
+int main(){
+    cout << "hello 1300!" << endl;
+    return 0;
+}
