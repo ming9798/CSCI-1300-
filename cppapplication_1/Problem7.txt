@@ -1,0 +1,115 @@
+Problem 7 (15 points): readRatings
+Write a function ​readRatings that loads the user ratings by reading the ​ratings.txt file. The first value of each line in ratings.txt is the username. Each username is followed by a list of ratings of the user for each book in ​books.txt​.
+For example, let us say there are in total 3 books. The ​ratings.txt file would be of the format:
+Ritchie,3,3,3 
+stroustrup,0,4,5 
+gosling,2,2,3 
+rossum,5,5,5
+...
+This function should:
+● Accept five parameters in this order:
+○ string ​filename​: the name of the file to be read
+○ array ​users​: array of ​User​ objects
+○ int​ ​numUsersStored:​ number of users currently stored in the arrays
+○ int ​usersArrSize​: capacity of the ​users arrays. The default value for this data
+member is 100.
+○ int ​maxCol: ​maximum number of columns. The default value for this data
+member is 50.
+● Use ​ifstream and ​getline to read data from the file, making an instance of a ​User
+object for each line, and placing it in the ​users ​array.
+● Assume that all users in the input file (​filename​) are distinct.
+● Hint​: You can use the ​split() - function from Homework 5, with comma (“,”) as the
+delimiter. When you copy your code in the Answer Box on Coderunner, make sure you
+copy ​Users ​class, ​readRatings()​ function, and ​split() ​function.
+● You can use ​stoi to convert each rating value (a string, as read from the text file) into
+an integer value.
+● Empty lines should not be added to the arrays.
+● The function should return the following values depending on cases:
+○ Case1: If ​numUsersStored is greater than or equal to the ​usersArrSize​, return -2.
+○ Case2: If the file cannot be opened, return -1.
+○ Case3: If ​numUsersStored is smaller than the ​size of ​users array, keep the
+existing elements in ​users array, then read data from file and add (append) the data to the arrays. The number of users stored in the arrays cannot exceed the
+ size of the ​users ​array. Return the total number of users in the array, as an
+integer.
+○ Your function must check these cases in the order specified above.
+Example 1:​ The ​users​ array is empty, so ​numUsersStored​ is 0.
+ ratings.txt
+   Ninja,0,1,2,3,4 Myth,2,2,4,5,1 Sphyer,3,1,0,0,5 Daequan,0,0,0,0,2
+     Function call
+ User users[10];
+int numUsers = 0;
+int usersArrSize = 10;
+readRatings(“ratings.txt”, users, numUsersStored, usersArrSize, 50);
+ Return value
+    4
+   Testing the data member ​username
+  // Code to print the values cout<<users[0].getUsername()<<endl; cout<<users[1].getUsername()<<endl; cout<<users[2].getUsername()<<endl; cout<<users[3].getUsername()<<endl;
+// Expected Output Ninja
+Myth
+Sphyer
+Daequan
+    Testing the data member​ ​ratings
+  // Code to print the values cout<<users[0].getRatingAt(0)<<endl; cout<<users[0].getRatingAt(1)<<endl; cout<<users[0].getRatingAt(2)<<endl; cout<<users[0].getRatingAt(3)<<endl; cout<<users[0].getRatingAt(4)<<endl; .
+.
+// Expected Output 0
+1 2 3 4 . .
+      
+  Example 2:​ The ​users​ array is empty, so ​numUserStored​ is 0 and a bad file is given
+    Function call
+  User users[10];
+int numUsersStored = 0;
+int usersArrSize = 10; readRatings(“badFile.txt”, users, numUserStored, usersArrSize, 50);
+ Return value
+    -1
+   Testing the data member ​username
+ // Code to print the values cout<<users[0].getUsername()<<endl; cout<<users[1].getUsername()<<endl; .
+.
+// Expected Output
+“” “” . .
+    
+     Testing the data member​ ​ratings
+   // Code to print the values cout<<users[0].getRatingAt(0)<<endl; cout<<users[0].getRatingAt(1)<<endl; cout<<users[0].getRatingAt(2)<<endl; cout<<users[0].getRatingAt(3)<<endl; cout<<users[0].getRatingAt(4)<<endl; .
+.
+// Expected Output 0
+0 0 0 0 . .
+  Example 3:​ The ​users​ array is already full, so ​readRatings​ returns -2.
+ moreRatings.txt
+   alpha,0,1,2,3,4 beta,0,1,2,3,4 gamma,0,1,2,3,4 delta,0,1,2,3,4
+     Function call
+  User users[2] = {“Ninja”, “Myth”};
+users[0].setUsername(“Ninja”); users[1].setUsername(“Myth”);
+users[0].setRatingAt(0,0); users[0].setRatingAt(1,1); users[0].setRatingAt(2,2); users[0].setRatingAt(3,3); users[0].setRatingAt(4,4); users[1].setRatingAt(0,2); users[1].setRatingAt(1,2); users[1].setRatingAt(2,4); users[1].setRatingAt(3,5); users[1].setRatingAt(4,5);
+int numUsersStored = 2; int usersArrSize = 2;
+readRatings(“moreRatings.txt”, users, numUsersStored, usersArrSize, 50);
+   
+  Return value
+   -2
+   Testing the data member ​username
+  // Code to print the values cout<<users[0].getUsername()<<endl; cout<<users[1].getUsername()<<endl;
+// Expected Output Ninja
+Myth
+    Testing the data member​ ​ratings
+  // Code to print the values cout<<users[0].getRatingAt(0)<<endl; cout<<users[0].getRatingAt(1)<<endl; cout<<users[0].getRatingAt(2)<<endl; cout<<users[0].getRatingAt(3)<<endl; cout<<users[0].getRatingAt(4)<<endl; cout<<users[1].getRatingAt(0)<<endl; .
+.
+// Expected Output 0
+1 2 3 4 2 . .
+    Example 4: There is already 1 user in the ​users array, so the value of ​numUsers is 1. However, the array ​size is only two, so only the first line of the file is stored and the function returns the ​size​ of the array.
+ ratings.txt
+   stroustrup,0,4,5 gosling,2,2,3 rossum,5,5,5
+   Function calls
+ User users[2];
+users[0].setUsername(“ritchie”); users[0].setRatingAt(0,0); users[0].setRatingAt(1,1); users[0].setRatingAt(2,2);
+int numUsers = 1;
+   
+int usersArrSize = 2; readRatings(“ratings.txt”, users, numUsers, usersArrSize, 50);
+Return value
+2
+Testing the data member ​username
+// Code to print the values cout<<users[0].getUsername()<<endl; cout<<users[1].getUsername()<<endl;
+// Expected Output ritchie
+stroustrup
+Testing the data member​ ​ratings
+// Code to print the values cout<<users[0].getRatingAt(0)<<endl; cout<<users[0].getRatingAt(1)<<endl; cout<<users[0].getRatingAt(2)<<endl; cout<<users[1].getRatingAt(0)<<endl; cout<<users[1].getRatingAt(1)<<endl; cout<<users[1].getRatingAt(2)<<endl;
+// Expected Output 0
+1 2 0 4 5
+The zip submission should have three files for this problem: ​User.h​, ​User.cpp​, and a driver called ​readRatingsDriver.cpp​, with a ​main() function to test your member functions. For CodeRunner​, paste your User class and its implementation (the contents of ​User.h and User.cpp​), and your ​readRatings function. Do not include the ​main() function. ​After developing in VSCode, this function will be one of the functions you include at the top of project2.cpp​ (for problem 11).

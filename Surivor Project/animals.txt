@@ -1,0 +1,10 @@
+Rabbit,white,3,1
+Crab,red,3,4
+Deer,brown,200,3
+Grizzly Bear,brown,500,10
+Polar Bear,white,700,9
+Buffalo,brown,1200,8
+Camel,tan,1000,6
+Fish,gray,20,2
+Scorpion,brown,0.1,7
+Seal,gray,400,5

@@ -1,0 +1,6 @@
+Hatchet,8
+Hammer,3
+Pickaxe,5
+Bow and Arrow,4
+Knife,6
+Trident,9
